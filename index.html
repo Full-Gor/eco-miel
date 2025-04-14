@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Miel Naturel - Directement de l'apiculteur</title>
     <style>
         /* Styles généraux */
@@ -180,6 +180,7 @@
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
             gap: 2rem;
+            justify-items: center;
         }
         
         .product-card {
@@ -460,7 +461,7 @@
             right: 30px;
             width: 50px;
             height: 60px;
-            background-color: #f8f8f7;
+            background-color: #ffffff;
             border-radius: 50% 50% 5% 5%;
             display: flex;
             justify-content: center;
@@ -483,7 +484,7 @@
         }
         
         .back-to-top:hover {
-            background-color: #fafafa;
+            background-color: #ffffff;
             transform: translateY(-5px);
         }
         
@@ -492,7 +493,7 @@
             position: absolute;
             width: 6px;
             height: 40px;
-            background-color: #fdfbfa;
+            background-color: #ffffff;
             border-radius: 3px;
             top: -25px;
             transform: rotate(10deg);
@@ -537,8 +538,19 @@
                 margin-bottom: 1rem;
             }
             
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .nav-links li {
+                margin: 0.3rem;
+            }
+            
             .hero {
-                height: 50vh;
+                height: auto;
+                min-height: 400px;
+                padding: 2rem 1rem;
             }
             
             .hero h1 {
@@ -552,6 +564,52 @@
             .product-grid,
             .testimonial-grid {
                 grid-template-columns: 1fr;
+            }
+            
+            .about-img {
+                height: 250px;
+            }
+            
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+            
+            .product-card {
+                max-width: 90%;
+                margin: 0 auto;
+            }
+            
+            .testimonial-card {
+                padding: 1.5rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .btn {
+                padding: 0.7rem 1.5rem;
+                font-size: 0.9rem;
+            }
+            
+            .contact-container {
+                gap: 2rem;
+            }
+            
+            .contact-form {
+                padding: 1.5rem;
+            }
+            
+            .footer-links {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .footer-links li {
+                border-right: none;
+                margin-bottom: 0.5rem;
             }
         }
     </style>
@@ -779,8 +837,8 @@
     </footer>
     
     <!-- Bouton remonter en haut (cuillère à miel) -->
-    <a href="#" class="back-to-top" id="backToTop" style="position: fixed; bottom: 30px; right: 30px; z-index: 9999;">
-        <img src="/img/logo.jpg" alt="Retour en haut" style="width: 30px; height: 30px; border-radius: 50%; object-fit: cover;">
+    <a href="#" class="back-to-top" id="backToTop" style="position: fixed; bottom: 20px; right: 20px; z-index: 9999;">
+        <img src="/img/logo.jpg" alt="Retour en haut" style="width: 25px; height: 25px; border-radius: 50%; object-fit: cover;">
     </a>
     
     <script>
@@ -807,7 +865,46 @@
             }
         });
         
-       
+        // Fonction pour initialiser le curseur abeille
+        function initBeeCursor() {
+          // Variables pour suivre le mouvement
+          let lastX = 0;
+          let direction = 'default';
+          
+          // Curseurs encodés en base64
+          const defaultCursor = "data:image/svg+xml;base64,CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2aWV3Qm94PSIwIDAgNTAgNTAiIHdpZHRoPSI1MCIgaGVpZ2h0PSI1MCI+CiAgPCEtLSBDb3JwcyBkZSBsJ2FiZWlsbGUgLS0+CiAgPGVsbGlwc2UgY3g9IjI1IiBjeT0iMjUiIHJ4PSIxNSIgcnk9IjEwIiBmaWxsPSIjRkZDMTA3IiAvPgogIAogIDwhLS0gUmF5dXJlcyBub2lyZXMgLS0+CiAgPHJlY3QgeD0iMjAiIHk9IjIwIiB3aWR0aD0iMTAiIGhlaWdodD0iMiIgZmlsbD0iYmxhY2siIC8+CiAgPHJlY3QgeD0iMjAiIHk9IjI0IiB3aWR0aD0iMTAiIGhlaWdodD0iMiIgZmlsbD0iYmxhY2siIC8+CiAgPHJlY3QgeD0iMjAiIHk9IjI4IiB3aWR0aD0iMTAiIGhlaWdodD0iMiIgZmlsbD0iYmxhY2siIC8+CiAgCiAgPCEtLSBBaWxlcyAtLT4KICA8ZWxsaXBzZSBjeD0iMTgiIGN5PSIxOCIgcng9IjgiIHJ5PSI1IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuNykiIHRyYW5zZm9ybT0icm90YXRlKC0yMCwxOCwxOCkiIC8+CiAgPGVsbGlwc2UgY3g9IjMyIiBjeT0iMTgiIHJ4PSI4IiByeT0iNSIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjcpIiB0cmFuc2Zvcm09InJvdGF0ZSgyMCwzMiwxOCkiIC8+CiAgCiAgPCEtLSBZZXV4IC0tPgogIDxjaXJjbGUgY3g9IjE3IiBjeT0iMjIiIHI9IjIiIGZpbGw9ImJsYWNrIiAvPgogIDxjaXJjbGUgY3g9IjMzIiBjeT0iMjIiIHI9IjIiIGZpbGw9ImJsYWNrIiAvPgogIAogIDwhLS0gQW50ZW5uZXMgLS0+CiAgPHBhdGggZD0iTTE3LDIwIFExNSwxNSAxMywxNyIgc3Ryb2tlPSJibGFjayIgZmlsbD0idHJhbnNwYXJlbnQiIHN0cm9rZS13aWR0aD0iMSIgLz4KICA8cGF0aCBkPSJNMzMsMjAgUTM1LDE1IDM3LDE3IiBzdHJva2U9ImJsYWNrIiBmaWxsPSJ0cmFuc3BhcmVudCIgc3Ryb2tlLXdpZHRoPSIxIiAvPgogIAogIDwhLS0gRGFyZCAtLT4KICA8cGF0aCBkPSJNMjUsMzUgTDI1LDM4IiBzdHJva2U9ImJsYWNrIiBmaWxsPSJ0cmFuc3BhcmVudCIgc3Ryb2tlLXdpZHRoPSIxIiAvPgo8L3N2Zz4=";
+          const rightCursor = "data:image/svg+xml;base64,CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2aWV3Qm94PSIwIDAgNTAgNTAiIHdpZHRoPSI1MCIgaGVpZ2h0PSI1MCI+CiAgPCEtLSBDb3JwcyBkZSBsJ2FiZWlsbGUgLS0+CiAgPGVsbGlwc2UgY3g9IjI1IiBjeT0iMjUiIHJ4PSIxNSIgcnk9IjEwIiBmaWxsPSIjRkZDMTA3IiAvPgogIAogIDwhLS0gUmF5dXJlcyBub2lyZXMgLS0+CiAgPHJlY3QgeD0iMjAiIHk9IjIwIiB3aWR0aD0iMTAiIGhlaWdodD0iMiIgZmlsbD0iYmxhY2siIC8+CiAgPHJlY3QgeD0iMjAiIHk9IjI0IiB3aWR0aD0iMTAiIGhlaWdodD0iMiIgZmlsbD0iYmxhY2siIC8+CiAgPHJlY3QgeD0iMjAiIHk9IjI4IiB3aWR0aD0iMTAiIGhlaWdodD0iMiIgZmlsbD0iYmxhY2siIC8+CiAgCiAgPCEtLSBBaWxlcyAtLT4KICA8ZWxsaXBzZSBjeD0iMTgiIGN5PSIxOCIgcng9IjgiIHJ5PSI1IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuNykiIHRyYW5zZm9ybT0icm90YXRlKC0yMCwxOCwxOCkiIC8+CiAgPGVsbGlwc2UgY3g9IjMyIiBjeT0iMTgiIHJ4PSI4IiByeT0iNSIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjcpIiB0cmFuc2Zvcm09InJvdGF0ZSgyMCwzMiwxOCkiIC8+CiAgCiAgPCEtLSBZZXV4IC0tPgogIDxjaXJjbGUgY3g9IjMzIiBjeT0iMjIiIHI9IjIiIGZpbGw9ImJsYWNrIiAvPgogIDxjaXJjbGUgY3g9IjE3IiBjeT0iMjIiIHI9IjIuNSIgZmlsbD0iYmxhY2siIC8+CiAgCiAgPCEtLSBBbnRlbm5lcyAtLT4KICA8cGF0aCBkPSJNMTcsMjAgUTE1LDE1IDEzLDE3IiBzdHJva2U9ImJsYWNrIiBmaWxsPSJ0cmFuc3BhcmVudCIgc3Ryb2tlLXdpZHRoPSIxIiAvPgogIDxwYXRoIGQ9Ik0zMywyMCBRMzUsMTUgMzcsMTciIHN0cm9rZT0iYmxhY2siIGZpbGw9InRyYW5zcGFyZW50IiBzdHJva2Utd2lkdGg9IjEiIC8+CiAgCiAgPCEtLSBEYXJkIC0tPgogIDxwYXRoIGQ9Ik0yNSwzNSBMMjgsMzgiIHN0cm9rZT0iYmxhY2siIGZpbGw9InRyYW5zcGFyZW50IiBzdHJva2Utd2lkdGg9IjEiIC8+Cjwvc3ZnPg==";
+          const leftCursor = "data:image/svg+xml;base64,CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2aWV3Qm94PSIwIDAgNTAgNTAiIHdpZHRoPSI1MCIgaGVpZ2h0PSI1MCI+CiAgPCEtLSBDb3JwcyBkZSBsJ2FiZWlsbGUgLS0+CiAgPGVsbGlwc2UgY3g9IjI1IiBjeT0iMjUiIHJ4PSIxNSIgcnk9IjEwIiBmaWxsPSIjRkZDMTA3IiAvPgogIAogIDwhLS0gUmF5dXJlcyBub2lyZXMgLS0+CiAgPHJlY3QgeD0iMjAiIHk9IjIwIiB3aWR0aD0iMTAiIGhlaWdodD0iMiIgZmlsbD0iYmxhY2siIC8+CiAgPHJlY3QgeD0iMjAiIHk9IjI0IiB3aWR0aD0iMTAiIGhlaWdodD0iMiIgZmlsbD0iYmxhY2siIC8+CiAgPHJlY3QgeD0iMjAiIHk9IjI4IiB3aWR0aD0iMTAiIGhlaWdodD0iMiIgZmlsbD0iYmxhY2siIC8+CiAgCiAgPCEtLSBBaWxlcyAtLT4KICA8ZWxsaXBzZSBjeD0iMTgiIGN5PSIxOCIgcng9IjgiIHJ5PSI1IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuNykiIHRyYW5zZm9ybT0icm90YXRlKC0yMCwxOCwxOCkiIC8+CiAgPGVsbGlwc2UgY3g9IjMyIiBjeT0iMTgiIHJ4PSI4IiByeT0iNSIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjcpIiB0cmFuc2Zvcm09InJvdGF0ZSgyMCwzMiwxOCkiIC8+CiAgCiAgPCEtLSBZZXV4IC0tPgogIDxjaXJjbGUgY3g9IjE3IiBjeT0iMjIiIHI9IjIuNSIgZmlsbD0iYmxhY2siIC8+CiAgPGNpcmNsZSBjeD0iMzMiIGN5PSIyMiIgcj0iMiIgZmlsbD0iYmxhY2siIC8+CiAgCiAgPCEtLSBBbnRlbm5lcyAtLT4KICA8cGF0aCBkPSJNMTcsMjAgUTE1LDE1IDEzLDE3IiBzdHJva2U9ImJsYWNrIiBmaWxsPSJ0cmFuc3BhcmVudCIgc3Ryb2tlLXdpZHRoPSIxIiAvPgogIDxwYXRoIGQ9Ik0zMywyMCBRMzUsMTUgMzcsMTciIHN0cm9rZT0iYmxhY2siIGZpbGw9InRyYW5zcGFyZW50IiBzdHJva2Utd2lkdGg9IjEiIC8+CiAgCiAgPCEtLSBEYXJkIC0tPgogIDxwYXRoIGQ9Ik0yNSwzNSBMMjIsMzgiIHN0cm9rZT0iYmxhY2siIGZpbGw9InRyYW5zcGFyZW50IiBzdHJva2Utd2lkdGg9IjEiIC8+Cjwvc3ZnPg==";
+          
+          // Appliquer le curseur par défaut au body
+          document.body.style.cursor = "url('" + defaultCursor + "') 25 25, auto";
+          
+          // Détecter le mouvement de la souris
+          document.addEventListener('mousemove', (e) => {
+            // Déterminer la direction horizontale
+            const currentX = e.clientX;
+            
+            if (currentX > lastX + 5) {
+              // Mouvement vers la droite
+              if (direction !== 'right') {
+                document.body.style.cursor = "url('" + rightCursor + "') 25 25, auto";
+                direction = 'right';
+              }
+            } else if (currentX < lastX - 5) {
+              // Mouvement vers la gauche
+              if (direction !== 'left') {
+                document.body.style.cursor = "url('" + leftCursor + "') 25 25, auto";
+                direction = 'left';
+              }
+            }
+            
+            // Mettre à jour la position pour la prochaine fois
+            lastX = currentX;
+          });
+        }
+        
+        // Appeler la fonction d'initialisation au chargement
+        window.addEventListener('load', initBeeCursor);
     </script>
 </body>
 </html>
