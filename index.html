@@ -13,7 +13,7 @@
         }
         
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Playfair Display', serif; font-style: italic;
             line-height: 1.6;
             color: #333;
             background-color: #f9f5e9;
@@ -799,22 +799,22 @@
                 </ul>
             </div>
             <div class="contact-form">
-                <form>
+                <form action="https://formspree.io/f/arnaudbarotteaux@gmail.com" method="POST">
                     <div class="form-group">
                         <label for="name">Votre nom</label>
-                        <input type="text" id="name" class="form-control" required>
+                        <input type="text" id="name" name="name" class="form-control" required>
                     </div>
                     <div class="form-group">
                         <label for="email">Votre email</label>
-                        <input type="email" id="email" class="form-control" required>
+                        <input type="email" id="email" name="email" class="form-control" required>
                     </div>
                     <div class="form-group">
                         <label for="subject">Sujet</label>
-                        <input type="text" id="subject" class="form-control" required>
+                        <input type="text" id="subject" name="subject" class="form-control" required>
                     </div>
                     <div class="form-group">
                         <label for="message">Votre message</label>
-                        <textarea id="message" class="form-control" required></textarea>
+                        <textarea id="message" name="message" class="form-control" required></textarea>
                     </div>
                     <button type="submit" class="submit-btn">Envoyer</button>
                 </form>
@@ -841,8 +841,22 @@
         <img src="/img/logo.jpg" alt="Retour en haut" style="width: 25px; height: 25px; border-radius: 50%; object-fit: cover;">
     </a>
     
-    <script>
-        // Script pour afficher/cacher le bouton de retour en haut
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+<script type="text/javascript">
+    (function() {
+        emailjs.init("VOTRE_CLE_PUBLIQUE"); // Créez un compte sur emailjs.com
+    })();
+    
+    document.getElementById('contact-form').addEventListener('submit', function(event) {
+        event.preventDefault();
+        
+        emailjs.sendForm('service_id', 'template_id', this)
+            .then(function() {
+                alert('Message envoyé avec succès!');
+            }, function(error) {
+                alert('Erreur lors de l\'envoi du message, veuillez réessayer.');
+            });
+    });
         document.addEventListener('DOMContentLoaded', function() {
             const backToTopButton = document.getElementById('backToTop');
             
@@ -863,48 +877,43 @@
                     });
                 });
             }
-        });
-        
-        // Fonction pour initialiser le curseur abeille
-        function initBeeCursor() {
-          // Variables pour suivre le mouvement
-          let lastX = 0;
-          let direction = 'default';
-          
-          // Curseurs encodés en base64
-          const defaultCursor = "data:image/svg+xml;base64,CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2aWV3Qm94PSIwIDAgNTAgNTAiIHdpZHRoPSI1MCIgaGVpZ2h0PSI1MCI+CiAgPCEtLSBDb3JwcyBkZSBsJ2FiZWlsbGUgLS0+CiAgPGVsbGlwc2UgY3g9IjI1IiBjeT0iMjUiIHJ4PSIxNSIgcnk9IjEwIiBmaWxsPSIjRkZDMTA3IiAvPgogIAogIDwhLS0gUmF5dXJlcyBub2lyZXMgLS0+CiAgPHJlY3QgeD0iMjAiIHk9IjIwIiB3aWR0aD0iMTAiIGhlaWdodD0iMiIgZmlsbD0iYmxhY2siIC8+CiAgPHJlY3QgeD0iMjAiIHk9IjI0IiB3aWR0aD0iMTAiIGhlaWdodD0iMiIgZmlsbD0iYmxhY2siIC8+CiAgPHJlY3QgeD0iMjAiIHk9IjI4IiB3aWR0aD0iMTAiIGhlaWdodD0iMiIgZmlsbD0iYmxhY2siIC8+CiAgCiAgPCEtLSBBaWxlcyAtLT4KICA8ZWxsaXBzZSBjeD0iMTgiIGN5PSIxOCIgcng9IjgiIHJ5PSI1IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuNykiIHRyYW5zZm9ybT0icm90YXRlKC0yMCwxOCwxOCkiIC8+CiAgPGVsbGlwc2UgY3g9IjMyIiBjeT0iMTgiIHJ4PSI4IiByeT0iNSIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjcpIiB0cmFuc2Zvcm09InJvdGF0ZSgyMCwzMiwxOCkiIC8+CiAgCiAgPCEtLSBZZXV4IC0tPgogIDxjaXJjbGUgY3g9IjE3IiBjeT0iMjIiIHI9IjIiIGZpbGw9ImJsYWNrIiAvPgogIDxjaXJjbGUgY3g9IjMzIiBjeT0iMjIiIHI9IjIiIGZpbGw9ImJsYWNrIiAvPgogIAogIDwhLS0gQW50ZW5uZXMgLS0+CiAgPHBhdGggZD0iTTE3LDIwIFExNSwxNSAxMywxNyIgc3Ryb2tlPSJibGFjayIgZmlsbD0idHJhbnNwYXJlbnQiIHN0cm9rZS13aWR0aD0iMSIgLz4KICA8cGF0aCBkPSJNMzMsMjAgUTM1LDE1IDM3LDE3IiBzdHJva2U9ImJsYWNrIiBmaWxsPSJ0cmFuc3BhcmVudCIgc3Ryb2tlLXdpZHRoPSIxIiAvPgogIAogIDwhLS0gRGFyZCAtLT4KICA8cGF0aCBkPSJNMjUsMzUgTDI1LDM4IiBzdHJva2U9ImJsYWNrIiBmaWxsPSJ0cmFuc3BhcmVudCIgc3Ryb2tlLXdpZHRoPSIxIiAvPgo8L3N2Zz4=";
-          const rightCursor = "data:image/svg+xml;base64,CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2aWV3Qm94PSIwIDAgNTAgNTAiIHdpZHRoPSI1MCIgaGVpZ2h0PSI1MCI+CiAgPCEtLSBDb3JwcyBkZSBsJ2FiZWlsbGUgLS0+CiAgPGVsbGlwc2UgY3g9IjI1IiBjeT0iMjUiIHJ4PSIxNSIgcnk9IjEwIiBmaWxsPSIjRkZDMTA3IiAvPgogIAogIDwhLS0gUmF5dXJlcyBub2lyZXMgLS0+CiAgPHJlY3QgeD0iMjAiIHk9IjIwIiB3aWR0aD0iMTAiIGhlaWdodD0iMiIgZmlsbD0iYmxhY2siIC8+CiAgPHJlY3QgeD0iMjAiIHk9IjI0IiB3aWR0aD0iMTAiIGhlaWdodD0iMiIgZmlsbD0iYmxhY2siIC8+CiAgPHJlY3QgeD0iMjAiIHk9IjI4IiB3aWR0aD0iMTAiIGhlaWdodD0iMiIgZmlsbD0iYmxhY2siIC8+CiAgCiAgPCEtLSBBaWxlcyAtLT4KICA8ZWxsaXBzZSBjeD0iMTgiIGN5PSIxOCIgcng9IjgiIHJ5PSI1IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuNykiIHRyYW5zZm9ybT0icm90YXRlKC0yMCwxOCwxOCkiIC8+CiAgPGVsbGlwc2UgY3g9IjMyIiBjeT0iMTgiIHJ4PSI4IiByeT0iNSIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjcpIiB0cmFuc2Zvcm09InJvdGF0ZSgyMCwzMiwxOCkiIC8+CiAgCiAgPCEtLSBZZXV4IC0tPgogIDxjaXJjbGUgY3g9IjMzIiBjeT0iMjIiIHI9IjIiIGZpbGw9ImJsYWNrIiAvPgogIDxjaXJjbGUgY3g9IjE3IiBjeT0iMjIiIHI9IjIuNSIgZmlsbD0iYmxhY2siIC8+CiAgCiAgPCEtLSBBbnRlbm5lcyAtLT4KICA8cGF0aCBkPSJNMTcsMjAgUTE1LDE1IDEzLDE3IiBzdHJva2U9ImJsYWNrIiBmaWxsPSJ0cmFuc3BhcmVudCIgc3Ryb2tlLXdpZHRoPSIxIiAvPgogIDxwYXRoIGQ9Ik0zMywyMCBRMzUsMTUgMzcsMTciIHN0cm9rZT0iYmxhY2siIGZpbGw9InRyYW5zcGFyZW50IiBzdHJva2Utd2lkdGg9IjEiIC8+CiAgCiAgPCEtLSBEYXJkIC0tPgogIDxwYXRoIGQ9Ik0yNSwzNSBMMjgsMzgiIHN0cm9rZT0iYmxhY2siIGZpbGw9InRyYW5zcGFyZW50IiBzdHJva2Utd2lkdGg9IjEiIC8+Cjwvc3ZnPg==";
-          const leftCursor = "data:image/svg+xml;base64,CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2aWV3Qm94PSIwIDAgNTAgNTAiIHdpZHRoPSI1MCIgaGVpZ2h0PSI1MCI+CiAgPCEtLSBDb3JwcyBkZSBsJ2FiZWlsbGUgLS0+CiAgPGVsbGlwc2UgY3g9IjI1IiBjeT0iMjUiIHJ4PSIxNSIgcnk9IjEwIiBmaWxsPSIjRkZDMTA3IiAvPgogIAogIDwhLS0gUmF5dXJlcyBub2lyZXMgLS0+CiAgPHJlY3QgeD0iMjAiIHk9IjIwIiB3aWR0aD0iMTAiIGhlaWdodD0iMiIgZmlsbD0iYmxhY2siIC8+CiAgPHJlY3QgeD0iMjAiIHk9IjI0IiB3aWR0aD0iMTAiIGhlaWdodD0iMiIgZmlsbD0iYmxhY2siIC8+CiAgPHJlY3QgeD0iMjAiIHk9IjI4IiB3aWR0aD0iMTAiIGhlaWdodD0iMiIgZmlsbD0iYmxhY2siIC8+CiAgCiAgPCEtLSBBaWxlcyAtLT4KICA8ZWxsaXBzZSBjeD0iMTgiIGN5PSIxOCIgcng9IjgiIHJ5PSI1IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuNykiIHRyYW5zZm9ybT0icm90YXRlKC0yMCwxOCwxOCkiIC8+CiAgPGVsbGlwc2UgY3g9IjMyIiBjeT0iMTgiIHJ4PSI4IiByeT0iNSIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjcpIiB0cmFuc2Zvcm09InJvdGF0ZSgyMCwzMiwxOCkiIC8+CiAgCiAgPCEtLSBZZXV4IC0tPgogIDxjaXJjbGUgY3g9IjE3IiBjeT0iMjIiIHI9IjIuNSIgZmlsbD0iYmxhY2siIC8+CiAgPGNpcmNsZSBjeD0iMzMiIGN5PSIyMiIgcj0iMiIgZmlsbD0iYmxhY2siIC8+CiAgCiAgPCEtLSBBbnRlbm5lcyAtLT4KICA8cGF0aCBkPSJNMTcsMjAgUTE1LDE1IDEzLDE3IiBzdHJva2U9ImJsYWNrIiBmaWxsPSJ0cmFuc3BhcmVudCIgc3Ryb2tlLXdpZHRoPSIxIiAvPgogIDxwYXRoIGQ9Ik0zMywyMCBRMzUsMTUgMzcsMTciIHN0cm9rZT0iYmxhY2siIGZpbGw9InRyYW5zcGFyZW50IiBzdHJva2Utd2lkdGg9IjEiIC8+CiAgCiAgPCEtLSBEYXJkIC0tPgogIDxwYXRoIGQ9Ik0yNSwzNSBMMjIsMzgiIHN0cm9rZT0iYmxhY2siIGZpbGw9InRyYW5zcGFyZW50IiBzdHJva2Utd2lkdGg9IjEiIC8+Cjwvc3ZnPg==";
-          
-          // Appliquer le curseur par défaut au body
-          document.body.style.cursor = "url('" + defaultCursor + "') 25 25, auto";
-          
-          // Détecter le mouvement de la souris
-          document.addEventListener('mousemove', (e) => {
-            // Déterminer la direction horizontale
-            const currentX = e.clientX;
             
-            if (currentX > lastX + 5) {
-              // Mouvement vers la droite
-              if (direction !== 'right') {
-                document.body.style.cursor = "url('" + rightCursor + "') 25 25, auto";
-                direction = 'right';
-              }
-            } else if (currentX < lastX - 5) {
-              // Mouvement vers la gauche
-              if (direction !== 'left') {
-                document.body.style.cursor = "url('" + leftCursor + "') 25 25, auto";
-                direction = 'left';
-              }
+            // Vérifier si un paramètre de message est présent dans l'URL
+            const urlParams = new URLSearchParams(window.location.search);
+            
+            // Si le formulaire a été soumis avec succès via Formspree
+            if (urlParams.has('submitted') || urlParams.has('success')) {
+                // Créer l'élément de message
+                const messageDiv = document.createElement('div');
+                messageDiv.style.position = 'fixed';
+                messageDiv.style.top = '100px';
+                messageDiv.style.left = '50%';
+                messageDiv.style.transform = 'translateX(-50%)';
+                messageDiv.style.backgroundColor = '#4a3600';
+                messageDiv.style.color = 'white';
+                messageDiv.style.padding = '15px 30px';
+                messageDiv.style.borderRadius = '5px';
+                messageDiv.style.boxShadow = '0 4px 8px rgba(0,0,0,0.2)';
+                messageDiv.style.zIndex = '9999';
+                messageDiv.innerHTML = 'Votre message a été envoyé avec succès. Nous vous répondrons dans les plus brefs délais.';
+                
+                // Ajouter au document
+                document.body.appendChild(messageDiv);
+                
+                // Faire disparaître le message après 5 secondes
+                setTimeout(() => {
+                    messageDiv.style.transition = 'opacity 1s ease-out';
+                    messageDiv.style.opacity = '0';
+                    
+                    // Retirer du DOM après la transition
+                    setTimeout(() => {
+                        document.body.removeChild(messageDiv);
+                        // Nettoyer l'URL (retirer le paramètre de message)
+                        window.history.replaceState({}, document.title, window.location.pathname);
+                    }, 1000);
+                }, 5000);
             }
-            
-            // Mettre à jour la position pour la prochaine fois
-            lastX = currentX;
-          });
-        }
-        
-        // Appeler la fonction d'initialisation au chargement
-        window.addEventListener('load', initBeeCursor);
+        });
     </script>
 </body>
 </html>
