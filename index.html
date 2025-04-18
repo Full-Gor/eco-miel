@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Miel Naturel - Directement de l'apiculteur</title>
     <style>
-        /* Styles généraux */
         * {
             margin: 0;
             padding: 0;
@@ -13,7 +12,8 @@
         }
         
         body {
-            font-family: 'Playfair Display', serif; font-style: italic;
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
             line-height: 1.6;
             color: #333;
             background-color: #f9f5e9;
@@ -24,7 +24,6 @@
             color: inherit;
         }
         
-        /* Header */
         header {
             background-color: #fff;
             padding: 1rem 0;
@@ -48,9 +47,8 @@
             color: #f9a826;
         }
         
-        .logo svg {
+        .logo img {
             margin-right: 0.5rem;
-            fill: #f9a826;
         }
         
         .nav-links {
@@ -101,7 +99,6 @@
             color: #fff;
         }
         
-        /* Hero Section */
         .hero {
             background-size: cover;
             background-position: center;
@@ -148,7 +145,6 @@
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         }
         
-        /* Nos Miels Section */
         .products {
             max-width: 1200px;
             margin: 4rem auto;
@@ -226,6 +222,34 @@
             margin-bottom: 1rem;
         }
         
+        .quantity-control {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .quantity-control button {
+            background-color: #4a3600;
+            color: #fff;
+            border: none;
+            width: 30px;
+            height: 30px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .quantity-control button:hover {
+            background-color: #f9a826;
+        }
+        
+        .quantity-control span {
+            width: 40px;
+            text-align: center;
+            font-weight: 500;
+        }
+        
         .add-to-cart {
             display: inline-block;
             background-color: #4a3600;
@@ -234,13 +258,89 @@
             border-radius: 4px;
             font-weight: 500;
             transition: all 0.3s ease;
+            text-align: center;
+            width: 100%;
         }
         
         .add-to-cart:hover {
             background-color: #f9a826;
         }
         
-        /* À Propos Section */
+        .cart {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+        }
+        
+        .cart-table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .cart-table th,
+        .cart-table td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .cart-table th {
+            background-color: #4a3600;
+            color: #fff;
+        }
+        
+        .cart-table td img {
+            width: 80px;
+            height: 80px;
+            object-fit: contain;
+            border-radius: 4px;
+        }
+        
+        .cart-remove {
+            background-color: #e29417;
+            color: #fff;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .cart-remove:hover {
+            background-color: #f9a826;
+        }
+        
+        .cart-total {
+            margin-top: 2육rem;
+            text-align: right;
+        }
+        
+        .cart-total p {
+            font-size: 1.5rem;
+            color: #4a3600;
+            font-weight: bold;
+        }
+        
+        .checkout-btn {
+            display: inline-block;
+            background-color: #f9a826;
+            color: #fff;
+            padding: 0.8rem 2rem;
+            border-radius: 4px;
+            font-weight: bold;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+        }
+        
+        .checkout-btn:hover {
+            background-color: #e29417;
+        }
+        
         .about {
             background-color: #fff;
             padding: 4rem 0;
@@ -256,7 +356,6 @@
         }
         
         .about-img {
-            background-image: url('/api/placeholder/600/400');
             background-size: cover;
             background-position: center;
             border-radius: 8px;
@@ -274,7 +373,6 @@
             color: #555;
         }
         
-        /* Témoignages */
         .testimonials {
             max-width: 1200px;
             margin: 4rem auto;
@@ -311,7 +409,6 @@
             border-radius: 50%;
             background-color: #f0f0f0;
             margin-right: 1rem;
-            background-image: url('/api/placeholder/50/50');
             background-size: cover;
         }
         
@@ -325,7 +422,6 @@
             font-size: 0.9rem;
         }
         
-        /* Contact Section */
         .contact {
             background-color: #4a3600;
             color: #fff;
@@ -410,7 +506,6 @@
             background-color: #e29417;
         }
         
-        /* Footer */
         footer {
             background-color: #333;
             color: #fff;
@@ -454,15 +549,14 @@
             font-size: 0.9rem;
         }
         
-        /* Bouton remonter en haut (cuillère à miel) */
         .back-to-top {
             position: fixed;
             bottom: 30px;
             right: 30px;
             width: 50px;
-            height: 60px;
-            background-color: #ffffff;
-            border-radius: 50% 50% 5% 5%;
+            height: 50px;
+            background-color: #f9a826;
+            border-radius: 50%;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -473,8 +567,6 @@
             opacity: 0;
             visibility: hidden;
             transform: translateY(20px);
-            overflow: hidden;
-            position: relative;
         }
         
         .back-to-top.visible {
@@ -484,34 +576,49 @@
         }
         
         .back-to-top:hover {
-            background-color: #ffffff;
+            background-color: #e29417;
             transform: translateY(-5px);
         }
         
-        .back-to-top::before {
-            content: "";
-            position: absolute;
-            width: 6px;
-            height: 40px;
-            background-color: #ffffff;
-            border-radius: 3px;
-            top: -25px;
-            transform: rotate(10deg);
-            z-index: 2;
-        }
-        
-        .back-to-top svg,
         .back-to-top img {
-            fill: #fff;
             width: 30px;
             height: 30px;
-            transform: translateY(-5px);
-            position: relative;
-            z-index: 1;
-            border-radius: 50%;
+            object-fit: contain;
         }
         
-        /* Responsive Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+        }
+        
+        .modal-content {
+            background-color: #fff;
+            max-width: 500px;
+            margin: 15% auto;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        .modal-content h2 {
+            font-size: 1.8rem;
+            color: #4a3600;
+            margin-bottom: 1.5rem;
+        }
+        
+        .close-btn {
+            float: right;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #333;
+        }
+        
         @media (max-width: 992px) {
             .about-container,
             .contact-container {
@@ -582,6 +689,15 @@
             .testimonial-card {
                 padding: 1.5rem;
             }
+            
+            .cart-table {
+                font-size: 0.9rem;
+            }
+            
+            .cart-table td img {
+                width: 60px;
+                height: 60px;
+            }
         }
         
         @media (max-width: 480px) {
@@ -611,11 +727,20 @@
                 border-right: none;
                 margin-bottom: 0.5rem;
             }
+            
+            .cart-table th,
+            .cart-table td {
+                padding: 0.5rem;
+            }
+            
+            .modal-content {
+                margin: 10% 1rem;
+                padding: 1.5rem;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- Header Section -->
     <header>
         <div class="nav-container">
             <a href="#" class="logo">
@@ -624,6 +749,7 @@
             </a>
             <ul class="nav-links">
                 <li><a href="#products">Nos Miels</a></li>
+                <li><a href="#cart">Panier</a></li>
                 <li><a href="#about">À Propos</a></li>
                 <li><a href="#testimonials">Témoignages</a></li>
                 <li><a href="#contact">Contact</a></li>
@@ -631,7 +757,6 @@
         </div>
     </header>
 
-    <!-- Hero Section -->
     <section class="hero" style="background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('/img/mielenrayon.webp'); background-position: center center; background-size: contain; background-repeat: no-repeat; background-color: #ffffff;">
         <div class="hero-content">
             <h1>Du Miel Pur et Naturel</h1>
@@ -640,81 +765,120 @@
         </div>
     </section>
 
-    <!-- Products Section -->
     <section class="products" id="products">
         <div class="section-title">
             <h2>Nos Miels</h2>
         </div>
         <div class="product-grid">
-            <!-- Product 1 -->
-            <div class="product-card">
+            <div class="product-card" data-id="1">
                 <div class="product-img" style="background-image: url('/img/fleurs.png');"></div>
                 <div class="product-info">
                     <h3>Miel de Fleurs</h3>
                     <p>Un délicieux miel toutes fleurs, récolté dans nos prairies locales. Doux et parfumé.</p>
                     <div class="product-price">12,50 €</div>
-                    <a href="#contact" class="add-to-cart">Commander</a>
+                    <div class="quantity-control">
+                        <button class="decrease">-</button>
+                        <span class="quantity">1</span>
+                        <button class="increase">+</button>
+                    </div>
+                    <button class="add-to-cart">Ajouter au panier</button>
                 </div>
             </div>
-            
-            <!-- Product 2 -->
-            <div class="product-card">
+            <div class="product-card" data-id="2">
                 <div class="product-img" style="background-image: url('/img/accacia.png');"></div>
                 <div class="product-info">
                     <h3>Miel d'Acacia</h3>
                     <p>Un miel clair et délicat aux notes subtiles, idéal pour sucrer vos boissons chaudes.</p>
                     <div class="product-price">14,90 €</div>
-                    <a href="#contact" class="add-to-cart">Commander</a>
+                    <div class="quantity-control">
+                        <button class="decrease">-</button>
+                        <span class="quantity">1</span>
+                        <button class="increase">+</button>
+                    </div>
+                    <button class="add-to-cart">Ajouter au panier</button>
                 </div>
             </div>
-            
-            <!-- Product 3 -->
-            <div class="product-card">
+            <div class="product-card" data-id="3">
                 <div class="product-img" style="background-image: url('/img/chataigne.png');"></div>
                 <div class="product-info">
                     <h3>Miel de Châtaignier</h3>
                     <p>Un miel robuste au goût puissant et légèrement amer, riche en minéraux.</p>
                     <div class="product-price">15,90 €</div>
-                    <a href="#contact" class="add-to-cart">Commander</a>
+                    <div class="quantity-control">
+                        <button class="decrease">-</button>
+                        <span class="quantity">1</span>
+                        <button class="increase">+</button>
+                    </div>
+                    <button class="add-to-cart">Ajouter au panier</button>
                 </div>
             </div>
-            
-            <!-- Product 4 -->
-            <div class="product-card">
+            <div class="product-card" data-id="4">
                 <div class="product-img" style="background-image: url('/img/lavande.png');"></div>
                 <div class="product-info">
                     <h3>Miel de Lavande</h3>
                     <p>Un miel aux arômes floraux distinctifs de la Provence, parfumé et délicat.</p>
                     <div class="product-price">16,50 €</div>
-                    <a href="#contact" class="add-to-cart">Commander</a>
+                    <div class="quantity-control">
+                        <button class="decrease">-</button>
+                        <span class="quantity">1</span>
+                        <button class="increase">+</button>
+                    </div>
+                    <button class="add-to-cart">Ajouter au panier</button>
                 </div>
             </div>
-            
-            <!-- Product 5 -->
-            <div class="product-card">
+            <div class="product-card" data-id="5">
                 <div class="product-img" style="background-image: url('/img/foret.png');"></div>
                 <div class="product-info">
                     <h3>Miel de Forêt</h3>
                     <p>Un miel foncé aux saveurs complexes et boisées, riche en oligoéléments.</p>
                     <div class="product-price">13,90 €</div>
-                    <a href="#contact" class="add-to-cart">Commander</a>
+                    <div class="quantity-control">
+                        <button class="decrease">-</button>
+                        <span class="quantity">1</span>
+                        <button class="increase">+</button>
+                    </div>
+                    <button class="add-to-cart">Ajouter au panier</button>
                 </div>
             </div>
-            
-            <!-- Product 6 -->
-            <div class="product-card">
+            <div class="product-card" data-id="6">
                 <div class="product-img" style="background-image: url('/img/thym.png');"></div>
                 <div class="product-info">
                     <h3>Miel de Thym</h3>
                     <p>Un miel rare aux arômes puissants et herbacés, réputé pour ses bienfaits.</p>
                     <div class="product-price">18,90 €</div>
-                    <a href="#contact" class="add-to-cart">Commander</a>
+                    <div class="quantity-control">
+                        <button class="decrease">-</button>
+                        <span class="quantity">1</span>
+                        <button class="increase">+</button>
+                    </div>
+                    <button class="add-to-cart">Ajouter au panier</button>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- About Section -->
+    <section class="cart" id="cart">
+        <div class="section-title">
+            <h2>Votre Panier</h2>
+        </div>
+        <table class="cart-table">
+            <thead>
+                <tr>
+                    <th>Produit</th>
+                    <th>Prix</th>
+                    <th>Quantité</th>
+                    <th>Total</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="cart-items"></tbody>
+        </table>
+        <div class="cart-total">
+            <p>Total: <span id="cart-total">0,00 €</span></p>
+            <a href="#" class="checkout-btn" id="checkout-btn">Passer la commande</a>
+        </div>
+    </section>
+
     <section class="about" id="about">
         <div class="about-container">
             <div class="about-img" style="background-image: url('/img/about.png'); background-size: cover;"></div>
@@ -727,13 +891,11 @@
         </div>
     </section>
 
-    <!-- Testimonials Section -->
     <section class="testimonials" id="testimonials">
         <div class="section-title">
             <h2>Ce que disent nos clients</h2>
         </div>
         <div class="testimonial-grid">
-            <!-- Testimonial 1 -->
             <div class="testimonial-card">
                 <p class="testimonial-text">"Ce miel est tout simplement exceptionnel ! J'ai découvert des saveurs que je n'avais jamais goûtées auparavant. Toute ma famille l'adore, je recommande vivement."</p>
                 <div class="testimonial-author">
@@ -744,8 +906,6 @@
                     </div>
                 </div>
             </div>
-            
-            <!-- Testimonial 2 -->
             <div class="testimonial-card">
                 <p class="testimonial-text">"Je suis très exigeant sur la qualité des produits que j'achète, et ce miel dépasse toutes mes attentes. On sent vraiment la différence avec les miels industriels. Bravo pour votre travail !"</p>
                 <div class="testimonial-author">
@@ -756,10 +916,8 @@
                     </div>
                 </div>
             </div>
-            
-            <!-- Testimonial 3 -->
             <div class="testimonial-card">
-                <p class="testimonial-text">"J'utilise leur miel d'acacia pour mes tisanes et c'est un vrai délice. La livraison est toujours rapide et le service client impeccable. Je ne changerai pour rien au monde !"</p>
+                <p class="testimonial-text">"J'utilise leur SEL d'acacia pour mes tisanes et c'est un vrai délice. La livraison est toujours rapide et le service client impeccable. Je ne changerai pour rien au monde !"</p>
                 <div class="testimonial-author">
                     <div class="author-img"></div>
                     <div class="author-info">
@@ -771,7 +929,6 @@
         </div>
     </section>
 
-    <!-- Contact Section -->
     <section class="contact" id="contact">
         <div class="contact-container">
             <div class="contact-info">
@@ -799,7 +956,7 @@
                 </ul>
             </div>
             <div class="contact-form">
-                <form action="https://formspree.io/f/arnaudbarotteaux@gmail.com" method="POST">
+                <form action="https://formspree.io/f/arnaudbarotteaux@gmail.com" method="POST" id="contact-form">
                     <div class="form-group">
                         <label for="name">Votre nom</label>
                         <input type="text" id="name" name="name" class="form-control" required>
@@ -822,12 +979,12 @@
         </div>
     </section>
 
-    <!-- Footer Section -->
     <footer>
         <div class="footer-container">
             <ul class="footer-links">
                 <li><a href="#">Accueil</a></li>
                 <li><a href="#products">Produits</a></li>
+                <li><a href="#cart">Panier</a></li>
                 <li><a href="#about">À Propos</a></li>
                 <li><a href="#contact">Contact</a></li>
                 <li><a href="#">Mentions Légales</a></li>
@@ -835,85 +992,268 @@
             <p class="copyright">© 2025 MielNaturel. Tous droits réservés.</p>
         </div>
     </footer>
-    
-    <!-- Bouton remonter en haut (cuillère à miel) -->
-    <a href="#" class="back-to-top" id="backToTop" style="position: fixed; bottom: 20px; right: 20px; z-index: 9999;">
-        <img src="/img/logo.jpg" alt="Retour en haut" style="width: 25px; height: 25px; border-radius: 50%; object-fit: cover;">
+
+    <a href="#" class="back-to-top" id="backToTop">
+        <img src="/img/logo.jpg" alt="Retour en haut">
     </a>
+
+    <div class="modal" id="checkoutModal">
+        <div class="modal-content">
+            <span class="close-btn" id="closeModal">&times;</span>
+            <h2>Informations de commande</h2>
+            <form id="checkoutForm">
+                <div class="form-group">
+                    <label for="firstName">Prénom</label>
+                    <input type="text" id="firstName" name="firstName" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Numéro de téléphone</label>
+                    <input type="tel" id="phone" name="phone" class="form-control" pattern="\+?[0-9]{10,15}" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" class="form-control" required>
+                </div>
+                <button type="submit" class="submit-btn">Confirmer la commande</button>
+            </form>
+        </div>
+    </div>
+
     
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-<script type="text/javascript">
-    (function() {
-        emailjs.init("VOTRE_CLE_PUBLIQUE"); // Créez un compte sur emailjs.com
-    })();
+
     
-    document.getElementById('contact-form').addEventListener('submit', function(event) {
-        event.preventDefault();
-        
-        emailjs.sendForm('service_id', 'template_id', this)
-            .then(function() {
-                alert('Message envoyé avec succès!');
-            }, function(error) {
-                alert('Erreur lors de l\'envoi du message, veuillez réessayer.');
+    </footer>
+
+    <a href="#" class="back-to-top" id="backToTop">
+        <img src="/img/logo.jpg" alt="Retour en haut">
+    </a>
+
+    <script>
+        let cart = [];
+
+        const products = [
+            { id: 1, name: 'Miel de Fleurs', price: 12.50, image: '/img/fleurs.png' },
+            { id: 2, name: 'Miel d\'Acacia', price: 14.90, image: '/img/accacia.png' },
+            { id: 3, name: 'Miel de Châtaignier', price: 15.90, image: '/img/chataigne.png' },
+            { id: 4, name: 'Miel de Lavande', price: 16.50, image: '/img/lavande.png' },
+            { id: 5, name: 'Miel de Forêt', price: 13.90, image: '/img/foret.png' },
+            { id: 6, name: 'Miel de Thym', price: 18.90, image: '/img/thym.png' }
+        ];
+
+        if (localStorage.getItem('cart')) {
+            cart = JSON.parse(localStorage.getItem('cart'));
+            updateCartDisplay();
+        }
+
+        function scrollToCart() {
+            const cartSection = document.getElementById('cart');
+            cartSection.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function showNotification(message) {
+            const notification = document.createElement('div');
+            notification.style.position = 'fixed';
+            notification.style.top = '20px';
+            notification.style.right = '20px';
+            notification.style.backgroundColor = '#4a3600';
+            notification.style.color = 'white';
+            notification.style.padding = '10px 20px';
+            notification.style.borderRadius = '5px';
+            notification.style.zIndex = '1000';
+            notification.textContent = message;
+
+            document.body.appendChild(notification);
+
+            setTimeout(() => {
+                notification.style.transition = 'opacity 0.5s';
+                notification.style.opacity = '0';
+                setTimeout(() => notification.remove(), 500);
+            }, 3000);
+        }
+
+        document.querySelectorAll('.product-card').forEach(card => {
+            const id = parseInt(card.dataset.id);
+            const quantityElement = card.querySelector('.quantity');
+            const increaseBtn = card.querySelector('.increase');
+            const decreaseBtn = card.querySelector('.decrease');
+            const addToCartBtn = card.querySelector('.add-to-cart');
+
+            increaseBtn.addEventListener('click', () => {
+                let quantity = parseInt(quantityElement.textContent);
+                quantityElement.textContent = quantity + 1;
             });
-    });
-        document.addEventListener('DOMContentLoaded', function() {
-            const backToTopButton = document.getElementById('backToTop');
-            
-            if (backToTopButton) {
-                window.addEventListener('scroll', () => {
-                    if (window.pageYOffset > 300) {
-                        backToTopButton.classList.add('visible');
-                    } else {
-                        backToTopButton.classList.remove('visible');
-                    }
-                });
-                
-                backToTopButton.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    window.scrollTo({
-                        top: 0,
-                        behavior: 'smooth'
+
+            decreaseBtn.addEventListener('click', () => {
+                let quantity = parseInt(quantityElement.textContent);
+                if (quantity > 1) {
+                    quantityElement.textContent = quantity - 1;
+                }
+            });
+
+            addToCartBtn.addEventListener('click', () => {
+                const quantity = parseInt(quantityElement.textContent);
+                const product = products.find(p => p.id === id);
+
+                const existingItem = cart.find(item => item.id === id);
+                if (existingItem) {
+                    existingItem.quantity += quantity;
+                } else {
+                    cart.push({
+                        id: product.id,
+                        name: product.name,
+                        price: product.price,
+                        quantity: quantity,
+                        image: product.image
                     });
-                });
-            }
-            
-            // Vérifier si un paramètre de message est présent dans l'URL
-            const urlParams = new URLSearchParams(window.location.search);
-            
-            // Si le formulaire a été soumis avec succès via Formspree
-            if (urlParams.has('submitted') || urlParams.has('success')) {
-                // Créer l'élément de message
-                const messageDiv = document.createElement('div');
-                messageDiv.style.position = 'fixed';
-                messageDiv.style.top = '100px';
-                messageDiv.style.left = '50%';
-                messageDiv.style.transform = 'translateX(-50%)';
-                messageDiv.style.backgroundColor = '#4a3600';
-                messageDiv.style.color = 'white';
-                messageDiv.style.padding = '15px 30px';
-                messageDiv.style.borderRadius = '5px';
-                messageDiv.style.boxShadow = '0 4px 8px rgba(0,0,0,0.2)';
-                messageDiv.style.zIndex = '9999';
-                messageDiv.innerHTML = 'Votre message a été envoyé avec succès. Nous vous répondrons dans les plus brefs délais.';
-                
-                // Ajouter au document
-                document.body.appendChild(messageDiv);
-                
-                // Faire disparaître le message après 5 secondes
-                setTimeout(() => {
-                    messageDiv.style.transition = 'opacity 1s ease-out';
-                    messageDiv.style.opacity = '0';
-                    
-                    // Retirer du DOM après la transition
-                    setTimeout(() => {
-                        document.body.removeChild(messageDiv);
-                        // Nettoyer l'URL (retirer le paramètre de message)
-                        window.history.replaceState({}, document.title, window.location.pathname);
-                    }, 1000);
-                }, 5000);
+                }
+
+                quantityElement.textContent = '1';
+                updateCartDisplay();
+                localStorage.setItem('cart', JSON.stringify(cart));
+                scrollToCart();
+                showNotification('Produit ajouté au panier !');
+            });
+        });
+
+        document.getElementById('cart-items').addEventListener('click', (e) => {
+            if (e.target.classList.contains('cart-remove')) {
+                const id = parseInt(e.target.dataset.id);
+                cart = cart.filter(item => item.id !== id);
+                updateCartDisplay();
+                localStorage.setItem('cart', JSON.stringify(cart));
+                showNotification('Produit supprimé du panier.');
             }
         });
+
+        function updateCartDisplay() {
+            const cartItems = document.getElementById('cart-items');
+            const cartTotal = document.getElementById('cart-total');
+            cartItems.innerHTML = '';
+
+            let total = 0;
+            cart.forEach(item => {
+                const itemTotal = item.price * item.quantity;
+                total += itemTotal;
+
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>
+                        <img src="${item.image}" alt="${item.name}">
+                        ${item.name}
+                    </td>
+                    <td>${item.price.toFixed(2)} €</td>
+                    <td>${item.quantity}</td>
+                    <td>${itemTotal.toFixed(2)} €</td>
+                    <td><button class="cart-remove" data-id="${item.id}">Supprimer</button></td>
+                `;
+                cartItems.appendChild(row);
+            });
+
+            cartTotal.textContent = total.toFixed(2) + ' €';
+        }
+
+        const checkoutModal = document.getElementById('checkoutModal');
+        const checkoutBtn = document.getElementById('checkout-btn');
+        const closeModal = document.getElementById('closeModal');
+        const checkoutForm = document.getElementById('checkoutForm');
+
+        checkoutBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            if (cart.length === 0) {
+                showNotification('Votre panier est vide.');
+                return;
+            }
+            checkoutModal.style.display = 'block';
+        });
+
+        closeModal.addEventListener('click', () => {
+            checkoutModal.style.display = 'none';
+        });
+
+        window.addEventListener('click', (e) => {
+            if (e.target === checkoutModal) {
+                checkoutModal.style.display = 'none';
+            }
+        });
+
+        checkoutForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const firstName = document.getElementById('firstName').value;
+            const phone = document.getElementById('phone').value;
+            const email = document.getElementById('email').value;
+
+            let summary = `Commande MielNaturel\n\nClient: ${firstName}\nTéléphone: ${phone}\nEmail: ${email}\n\n`;
+            let total = 0;
+            cart.forEach(item => {
+                const itemTotal = item.price * item.quantity;
+                summary += `${item.name} x${item.quantity}: ${itemTotal.toFixed(2)} €\n`;
+                total += itemTotal;
+            });
+            summary += `\nTotal: ${total.toFixed(2)} €`;
+
+            const isMobile = /Android|iPhone|iPad/i.test(navigator.userAgent);
+            if (isMobile) {
+                const smsNumber = '+33644762721';
+                const encodedSummary = encodeURIComponent(summary);
+                window.location.href = `sms:${smsNumber}?body=${encodedSummary}`;
+            } else {
+                const emailRecipient = 'arnaudbarotteaux@gmail.com';
+                const subject = encodeURIComponent('Nouvelle commande MielNaturel');
+                const body = encodeURIComponent(summary);
+                window.location.href = `mailto:${emailRecipient}?subject=${subject}&body=${body}`;
+            }
+
+            showNotification('Commande passée avec succès ! Un récapitulatif a été envoyé.');
+            checkoutModal.style.display = 'none';
+            cart = [];
+            updateCartDisplay();
+            localStorage.removeItem('cart');
+            checkoutForm.reset();
+        });
+
+        const backToTopButton = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.add('visible');
+            } else {
+                backToTopButton.classList.remove('visible');
+            }
+        });
+
+        backToTopButton.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.has('submitted') || urlParams.has('success')) {
+            const messageDiv = document.createElement('div');
+            messageDiv.style.position = 'fixed';
+            messageDiv.style.top = '100px';
+            messageDiv.style.left = '50%';
+            messageDiv.style.transform = 'translateX(-50%)';
+            messageDiv.style.backgroundColor = '#4a3600';
+            messageDiv.style.color = 'white';
+            messageDiv.style.padding = '15px 30px';
+            messageDiv.style.borderRadius = '5px';
+            messageDiv.style.boxShadow = '0 4px 8px rgba(0,0,0,0.2)';
+            messageDiv.style.zIndex = '9999';
+            messageDiv.innerHTML = 'Votre message a été envoyé avec succès. Nous vous répondrons dans les plus brefs délais.';
+            
+            document.body.appendChild(messageDiv);
+            
+            setTimeout(() => {
+                messageDiv.style.transition = 'opacity 1s ease-out';
+                messageDiv.style.opacity = '0';
+                setTimeout(() => {
+                    document.body.removeChild(messageDiv);
+                    window.history.replaceState({}, document.title, window.location.pathname);
+                }, 1000);
+            }, 5000);
+        }
     </script>
 </body>
 </html>
